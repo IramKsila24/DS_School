@@ -4,18 +4,18 @@ pipeline {
         DOCKER_IMAGE = "school-app:latest"
     }
     stages {
-        stage('Clone') {
+        stage('Clonage') {
             steps {
                 git branch: 'main', 
                 url: 'https://github.com/IramKsila24/test.git'
             }
         }
-        stage('Build') {
+        stage('Building mvn') {
             steps {
                 sh 'mvn clean install'
             }
         }
-stage('Construire Image Docker') {
+stage('Docker Image ') {
  steps {
  sh 'docker build -t school-app:latest .'
  }
